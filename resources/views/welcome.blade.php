@@ -25,95 +25,43 @@
 </head>
 
 <body>
-    <main class="bg-gray-100 min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 pt-16 sm:px-6 lg:px-8">
+    <main class="min-h-screen bg-gray-100">
+        <div class="px-4 pt-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="
-                  text-base
-                  font-semibold
-                  text-indigo-600
-                  tracking-wide
-                  uppercase
-                ">
+                <h2 class="text-base font-semibold tracking-wide text-indigo-600 uppercase ">
                     Final Project MBD 2021
                 </h2>
-                <p class="
-                  mt-1
-                  text-4xl
-                  font-extrabold
-                  text-gray-900
-                  sm:text-5xl
-                  sm:tracking-tight
-                  lg:text-6xl
-                  transition
-                  duration-500
-                  ease-in-out
-                  transform hover:-translate-y-1 hover:scale-110 hover:text-gray-700
-                ">
+                <p class="mt-1 text-4xl font-extrabold text-gray-900 transition duration-500 ease-in-out transform sm:text-5xl sm:tracking-tight lg:text-6xl hover:-translate-y-1 hover:scale-110 hover:text-gray-700">
                     Northwind Database
                 </p>
-                <p class="max-w-xl mt-5 mx-auto text-lg text-gray-500">
+                <p class="max-w-xl mx-auto mt-5 text-lg text-gray-500">
                     Web ini dibuat oleh <br /> <span class="font-bold text-gray-700">Reyhan Naufal Rahman, Rizqi Tsani,
                         Muhammad Valda
                         Rizky
                     </span> </p>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+        <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="
-                    shadow
-                    overflow-hidden
-                    border-b border-gray-200
-                    sm:rounded-lg
-                  ">
+                    <a href="{{ route('create') }}" type="button" class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Tambah Data
+                    </a>
+                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <th scope="col" class="
-                            px-6
-                            py-3
-                            text-left text-xs
-                            font-medium
-                            text-gray-500
-                            uppercase
-                            tracking-wider
-                          ">
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Name
                                         </th>
-                                        <th scope="col" class="
-                            px-6
-                            py-3
-                            text-left text-xs
-                            font-medium
-                            text-gray-500
-                            uppercase
-                            tracking-wider
-                          ">
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Title
                                         </th>
-                                        <th scope="col" class="
-                            px-6
-                            py-3
-                            text-left text-xs
-                            font-medium
-                            text-gray-500
-                            uppercase
-                            tracking-wider
-                          ">
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Email
                                         </th>
-                                        <th scope="col" class="
-                            px-6
-                            py-3
-                            text-left text-xs
-                            font-medium
-                            text-gray-500
-                            uppercase
-                            tracking-wider
-                          ">
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Role
                                         </th>
                                         <th scope="col" class="relative px-6 py-3">
@@ -123,277 +71,109 @@
                                 </thead>
                                 <tbody x-max="2">
                                     <tr class="bg-white" x-description="Odd row">
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm
-                            font-medium
-                            text-gray-900
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             Jane Cooper
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Regional Paradigm Technician
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             jane.cooper@example.com
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Admin
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-right text-sm
-                            font-medium
-                          ">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                            <a href="{{route('edit')}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                     </tr>
 
                                     <tr class="bg-gray-50" x-description="Even row">
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm
-                            font-medium
-                            text-gray-900
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             Cody Fisher
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Product Directives Officer
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             cody.fisher@example.com
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Owner
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-right text-sm
-                            font-medium
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                     </tr>
 
                                     <tr class="bg-white" x-description="Odd row">
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm
-                            font-medium
-                            text-gray-900
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             Esther Howard
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Forward Response Developer
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             esther.howard@example.com
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Member
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-right text-sm
-                            font-medium
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                     </tr>
 
                                     <tr class="bg-gray-50" x-description="Even row">
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm
-                            font-medium
-                            text-gray-900
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             Jenny Wilson
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Central Security Manager
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             jenny.wilson@example.com
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Member
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-right text-sm
-                            font-medium
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                     </tr>
 
                                     <tr class="bg-white" x-description="Odd row">
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm
-                            font-medium
-                            text-gray-900
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             Kristin Watson
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Lead Implementation Liaison
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             kristin.watson@example.com
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Admin
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-right text-sm
-                            font-medium
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                     </tr>
 
                                     <tr class="bg-gray-50" x-description="Even row">
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm
-                            font-medium
-                            text-gray-900
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             Cameron Williamson
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Internal Applications Engineer
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             cameron.williamson@example.com
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-sm text-gray-500
-                          ">
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Member
                                         </td>
-                                        <td class="
-                            px-6
-                            py-4
-                            whitespace-nowrap
-                            text-right text-sm
-                            font-medium
-                          ">
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                     </tr>
@@ -405,8 +185,8 @@
             </div>
         </div>
         <footer>
-            <div class="max-w-7xl mx-auto  px-4 overflow-hidden sm:px-6 lg:px-8">
-                <p class="text-center text-base text-gray-400">
+            <div class="px-4 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
+                <p class="text-base text-center text-gray-400">
                     Made with ❤ kelompok MBD
                 </p>
             </div>
