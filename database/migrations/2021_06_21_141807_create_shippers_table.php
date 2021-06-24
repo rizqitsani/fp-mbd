@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStringsTable extends Migration
+class CreateShippersTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,12 @@ class CreateStringsTable extends Migration
      */
     public function up()
     {
-        Schema::create('strings', function (Blueprint $table) {
-            $table->integer('string_id', true);
-            $table->string('string_data')->nullable();
+        Schema::create('shippers', function (Blueprint $table) {
+            $table->smallInteger('shipper_id')->primary();
+            $table->string('company_name', 40);
+            $table->string('phone', 24)->nullable();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +27,6 @@ class CreateStringsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('strings');
+        Schema::dropIfExists('shippers');
     }
 }

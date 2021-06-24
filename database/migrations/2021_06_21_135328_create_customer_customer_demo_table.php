@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderDetailsStatusTable extends Migration
+class CreateCustomerCustomerDemoTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,13 @@ class CreateOrderDetailsStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_details_status', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('status_name', 50);
+        Schema::create('customer_customer_demo', function (Blueprint $table) {
+            $table->char('customer_id', 255);
+            $table->char('customer_type_id', 255);
+
+            $table->primary(['customer_id', 'customer_type_id']);
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +28,6 @@ class CreateOrderDetailsStatusTable extends Migration
      */
     public function down()
     {
-        Schema::drop('order_details_status');
+        Schema::dropIfExists('customer_customer_demo');
     }
 }

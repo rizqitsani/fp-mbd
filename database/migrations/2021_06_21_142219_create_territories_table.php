@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInventoryTransactionTypesTable extends Migration
+class CreateTerritoriesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,12 @@ class CreateInventoryTransactionTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventory_transaction_types', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('type_name', 50);
+        Schema::create('territories', function (Blueprint $table) {
+            $table->string('territory_id', 20)->primary();
+            $table->char('territory_description', 100);
+            $table->smallInteger('region_id');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +27,6 @@ class CreateInventoryTransactionTypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('inventory_transaction_types');
+        Schema::dropIfExists('territories');
     }
 }

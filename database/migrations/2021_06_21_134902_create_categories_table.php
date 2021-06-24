@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrivilegesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,13 @@ class CreatePrivilegesTable extends Migration
      */
     public function up()
     {
-        Schema::create('privileges', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('privilege_name', 50)->nullable();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->smallInteger('category_id')->primary();
+            $table->string('category_name', 15);
+            $table->text('description')->nullable();
+            $table->binary('picture')->nullable();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +28,6 @@ class CreatePrivilegesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('privileges');
+        Schema::dropIfExists('categories');
     }
 }

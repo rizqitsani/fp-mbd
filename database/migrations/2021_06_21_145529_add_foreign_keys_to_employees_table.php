@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersStatusTable extends Migration
+class AddForeignKeysToEmployeesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,10 @@ class CreateOrdersStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders_status', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('status_name', 50);
+        Schema::table('employees', function (Blueprint $table) {
+            $table->foreign('reports_to')->references('employee_id')->on('employees');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +25,8 @@ class CreateOrdersStatusTable extends Migration
      */
     public function down()
     {
-        Schema::drop('orders_status');
+        Schema::table('employees', function (Blueprint $table) {
+            $table->dropForeign('employees_reports_to_foreign');
+        });
     }
 }

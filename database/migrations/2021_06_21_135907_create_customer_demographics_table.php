@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTaxStatusTable extends Migration
+class CreateCustomerDemographicsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,11 @@ class CreateOrdersTaxStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders_tax_status', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('tax_status_name', 50);
+        Schema::create('customer_demographics', function (Blueprint $table) {
+            $table->char('customer_type_id', 255)->primary();
+            $table->text('customer_desc')->nullable();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +26,6 @@ class CreateOrdersTaxStatusTable extends Migration
      */
     public function down()
     {
-        Schema::drop('orders_tax_status');
+        Schema::dropIfExists('customer_demographics');
     }
 }

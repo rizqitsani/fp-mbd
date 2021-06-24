@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePurchaseOrderStatusTable extends Migration
+class CreateEmployeeTerritoriesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,13 @@ class CreatePurchaseOrderStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_order_status', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('status', 50)->nullable();
+        Schema::create('employee_territories', function (Blueprint $table) {
+            $table->smallInteger('employee_id');
+            $table->string('territory_id', 20);
+
+            $table->primary(['employee_id', 'territory_id']);
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -28,6 +28,6 @@ class CreatePurchaseOrderStatusTable extends Migration
      */
     public function down()
     {
-        Schema::drop('purchase_order_status');
+        Schema::dropIfExists('employee_territories');
     }
 }
