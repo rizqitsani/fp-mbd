@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->date('required_date')->nullable();
             $table->date('shipped_date')->nullable();
             $table->smallInteger('ship_via')->nullable();
-            $table->decimal('freight', 9, 7)->nullable();
+            $table->decimal('freight')->nullable();
             $table->string('ship_name', 40)->nullable();
             $table->string('ship_address', 60)->nullable();
             $table->string('ship_city', 15)->nullable();

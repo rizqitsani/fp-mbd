@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->smallInteger('supplier_id')->nullable();
             $table->smallInteger('category_id')->nullable();
             $table->string('quantity_per_unit', 20)->nullable();
-            $table->decimal('unit_price', 9, 7)->nullable();
+            $table->decimal('unit_price')->nullable();
             $table->smallInteger('units_in_stock')->nullable();
             $table->smallInteger('units_on_order')->nullable();
             $table->smallInteger('reorder_level')->nullable();
