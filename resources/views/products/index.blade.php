@@ -37,13 +37,18 @@
                 <p class="max-w-xl mx-auto mt-5 text-lg text-gray-500">
                     Web ini dibuat oleh <br /> <span class="font-bold text-gray-700">Reyhan Naufal Rahman, Rizqi Tsani,
                         Muhammad Valda
-                        Rizky
+                        Rizky,
+                        Maximilian H.M.Lingga
                     </span> </p>
             </div>
         </div>
         <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <!-- 
+                    <h1 class='text-3xl pt-4 pb-2 font-bold text-center'>Tabel Product</h1>
+                    <p class='text-gray-700  text-center'>Data tabel dibawah merupakan data yang diambil dari tabel
+                        product</P> -->
                     <a href="{{ route('products.create') }}" type="button"
                         class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Tambah Data
@@ -55,134 +60,52 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
-                                            Name
+                                            No
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
-                                            Title
+                                            Product Name
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
-                                            Email
+                                            Unit Price
                                         </th>
+
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
-                                            Role
+                                            Actions
                                         </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Edit</span>
-                                        </th>
+
+
+
                                     </tr>
                                 </thead>
-                                <tbody x-max="2">
+                                @foreach ($products as $product)
+                                <tbody x-max="1">
                                     <tr class="bg-white" x-description="Odd row">
                                         <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            Jane Cooper
+                                            {{ $loop->iteration }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                            {{ $product->product_name }}
                                         </td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Regional Paradigm Technician
+                                            {{ $product->unit_price }}
                                         </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            jane.cooper@example.com
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Admin
-                                        </td>
-                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="{{route('products.edit')}}"
+                                        <td class="px-6 py-4 text-sm font-medium flex space-x-3 whitespace-nowrap">
+                                            <a href="{{route('products.edit', ['id' => $product->product_id])}}"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <form
+                                                action="{{ route('products.delete', ['id' => $product->product_id]) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="text-red-500 hover:text-red-600 focus:outline-none">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-
-                                    <tr class="bg-gray-50" x-description="Even row">
-                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            Cody Fisher
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Product Directives Officer
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            cody.fisher@example.com
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Owner
-                                        </td>
-                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-white" x-description="Odd row">
-                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            Esther Howard
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Forward Response Developer
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            esther.howard@example.com
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Member
-                                        </td>
-                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-gray-50" x-description="Even row">
-                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            Jenny Wilson
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Central Security Manager
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            jenny.wilson@example.com
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Member
-                                        </td>
-                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-white" x-description="Odd row">
-                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            Kristin Watson
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Lead Implementation Liaison
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            kristin.watson@example.com
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Admin
-                                        </td>
-                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-gray-50" x-description="Even row">
-                                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            Cameron Williamson
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Internal Applications Engineer
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            cameron.williamson@example.com
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            Member
-                                        </td>
-                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
