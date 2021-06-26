@@ -79,7 +79,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        return view('products.create');
+        return view('products.edit');
     }
 
     /**
@@ -102,7 +102,12 @@ class ProductController extends Controller
         $product->units_on_order = 0;
         $product->reorder_level = $request->reorder_level;
         $product->discontinued = $request->discontinued;
-        $product->discontinued = 0;
+
+        if ($product->save()) {
+            return redirect(route('products.index'))->with('success', 'Product updated.');
+        }
+
+        return redirect(route('products.index'))->with('error', 'Failed to update product.');
     }
 
     /**
