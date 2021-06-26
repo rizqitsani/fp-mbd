@@ -14,7 +14,7 @@ class AddForeignKeysToOrderDetailsTable extends Migration
     public function up()
     {
         Schema::table('order_details', function (Blueprint $table) {
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
             $table->foreign('order_id')->references('order_id')->on('orders');
         });
     }
