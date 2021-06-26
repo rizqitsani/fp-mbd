@@ -15,36 +15,39 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-        DB::statement('SET session_replication_role = \'replica\';');
+        $path = 'database/sql/northwind_data.sql';
+        DB::unprepared(file_get_contents($path));
 
-        $this->call([
-            CustomersTableSeeder::class,
-            EmployeesTableSeeder::class,
-            InventoryTransactionTypesTableSeeder::class,
-            OrderDetailsTableSeeder::class,
-            OrderDetailsStatusTableSeeder::class,
-            OrdersTableSeeder::class,
-            InvoicesTableSeeder::class,
-            OrdersTableSeeder::class,
-            OrderDetailsTableSeeder::class,
-            OrdersStatusTableSeeder::class,
-            OrderDetailsTableSeeder::class,
-            OrdersTaxStatusTableSeeder::class,
-            PrivilegesTableSeeder::class,
-            EmployeePrivilegesTableSeeder::class,
-            ProductsTableSeeder::class,
-            InventoryTransactionsTableSeeder::class,
-            PurchaseOrderDetailsTableSeeder::class,
-            PurchaseOrderStatusTableSeeder::class,
-            PurchaseOrdersTableSeeder::class,
-            SalesReportsTableSeeder::class,
-            ShippersTableSeeder::class,
-            StringsTableSeeder::class,
-            SuppliersTableSeeder::class
-        ]);
+        // Model::unguard();
+        // DB::statement('SET session_replication_role = \'replica\';');
 
-        DB::statement('SET session_replication_role = \'origin\';');
-        Model::reguard();
+        // $this->call([
+        //     CustomersTableSeeder::class,
+        //     EmployeesTableSeeder::class,
+        //     InventoryTransactionTypesTableSeeder::class,
+        //     OrderDetailsTableSeeder::class,
+        //     OrderDetailsStatusTableSeeder::class,
+        //     OrdersTableSeeder::class,
+        //     InvoicesTableSeeder::class,
+        //     OrdersTableSeeder::class,
+        //     OrderDetailsTableSeeder::class,
+        //     OrdersStatusTableSeeder::class,
+        //     OrderDetailsTableSeeder::class,
+        //     OrdersTaxStatusTableSeeder::class,
+        //     PrivilegesTableSeeder::class,
+        //     EmployeePrivilegesTableSeeder::class,
+        //     ProductsTableSeeder::class,
+        //     InventoryTransactionsTableSeeder::class,
+        //     PurchaseOrderDetailsTableSeeder::class,
+        //     PurchaseOrderStatusTableSeeder::class,
+        //     PurchaseOrdersTableSeeder::class,
+        //     SalesReportsTableSeeder::class,
+        //     ShippersTableSeeder::class,
+        //     StringsTableSeeder::class,
+        //     SuppliersTableSeeder::class
+        // ]);
+
+        // DB::statement('SET session_replication_role = \'origin\';');
+        // Model::reguard();
     }
 }
