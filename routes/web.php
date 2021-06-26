@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return redirect('/products');
+});
 
 Route::prefix('products')->name('products')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('.index');
@@ -25,5 +25,5 @@ Route::prefix('products')->name('products')->group(function () {
     Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('.edit');
     Route::get('/{id}', [ProductController::class, 'show'])->name('.show');
     Route::put('/{id}', [ProductController::class, 'update'])->name('.update');
-    Route::delete('/{id}', [ProductController::class, 'delete'])->name('.delete');
+    Route::delete('/{id}', [ProductController::class, 'destroy'])->name('.delete');
 });
