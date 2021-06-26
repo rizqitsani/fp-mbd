@@ -79,7 +79,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        return view('products.edit');
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -99,7 +99,6 @@ class ProductController extends Controller
         $product->quantity_per_unit = $request->quantity_per_unit;
         $product->unit_price = $request->unit_price;
         $product->units_in_stock = $request->units_in_stock;
-        $product->units_on_order = 0;
         $product->reorder_level = $request->reorder_level;
         $product->discontinued = $request->discontinued;
 
