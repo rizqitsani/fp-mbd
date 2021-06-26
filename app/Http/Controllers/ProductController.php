@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index');
+        $products = Product::all();
+
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -34,7 +37,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->product_name = $request->product_name;
+        $product->supplier_id = $request->supplier_id;
+        $product->category_id = $request->category_id;
+        $product->quantity_per_unit = $request->quantity_per_unit;
+        $product->unit_price = $request->unit_price;
+        $product->units_in_stock = $request->units_in_stock;
+        $product->units_on_order = 0;
+        $product->reorder_level = $request->reorder_level;
+        $product->discontinued = 0;
+
+        if ($product->save()) {
+            return redirect(route('products.index'))->with('success', 'Product created.');
+        }
+
+        return redirect(route('products.index'))->with('error', 'Failed to create product.');
     }
 
     /**
@@ -45,7 +63,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return response()->json($product);
+        // return view('products.show', compact('product'));
     }
 
     /**
@@ -54,8 +75,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id = 1)
+    public function edit($id)
     {
+        $product = Product::findOrFail($id);
+
         return view('products.create');
     }
 
@@ -68,7 +91,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $product->product_name = $request->product_name;
+        $product->supplier_id = $request->supplier_id;
+        $product->category_id = $request->category_id;
+        $product->quantity_per_unit = $request->quantity_per_unit;
+        $product->unit_price = $request->unit_price;
+        $product->units_in_stock = $request->units_in_stock;
+        $product->units_on_order = 0;
+        $product->reorder_level = $request->reorder_level;
+        $product->discontinued = $request->discontinued;
+        $product->discontinued = 0;
     }
 
     /**
@@ -79,6 +113,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        if ($product->delete()) {
+            return redirect(route('products.index'))->with('success', 'Product deleted.');
+        }
+
+        return redirect(route('products.index'))->with('success', 'Failed to delete product.');
     }
 }
