@@ -49,10 +49,17 @@
                     <h1 class='text-3xl pt-4 pb-2 font-bold text-center'>Tabel Product</h1>
                     <p class='text-gray-700  text-center'>Data tabel dibawah merupakan data yang diambil dari tabel
                         product</P> -->
-                    <a href="{{ route('products.create') }}" type="button"
-                        class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Tambah Data
-                    </a>
+                    <div>
+
+                        <a href="{{ route('products.create') }}" type="button"
+                            class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Tambah Data
+                        </a>
+                        <a href="{{ route('index') }}" type="button"
+                            class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Kembali
+                        </a>
+                    </div>
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">

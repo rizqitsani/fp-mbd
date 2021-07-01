@@ -97,11 +97,11 @@
                                 </div>
 
                                 <div class="sm:col-span-6">
-                                    <label for="unit_in_stock" class="block text-sm font-medium text-gray-700">
+                                    <label for="units_in_stock" class="block text-sm font-medium text-gray-700">
                                         Unit in Stock
                                     </label>
                                     <div class="mt-1">
-                                        <input type="text" name="unit_in_stock" id="unit_in_stock"
+                                        <input type="text" name="units_in_stock" id="units_in_stock"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
