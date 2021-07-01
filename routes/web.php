@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\QueryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/products');
-});
+    return view('welcome');
+})->name('index');
+
+Route::get('/set-query', [QueryController::class, 'set'])->name('set');
+Route::get('/aggregation-query', [QueryController::class, 'aggregation'])->name('aggregation');
 
 Route::prefix('products')->name('products')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('.index');
