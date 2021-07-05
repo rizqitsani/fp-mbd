@@ -39,6 +39,10 @@
         <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <a href="{{ route('index') }}" type="button"
+                        class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-gray-700 border-2 border-black rounded focus:outline-none focus:ring-2 focus:ring-offset-2 ">
+                        Kembali
+                    </a>    
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">
@@ -76,10 +80,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="{{ route('index') }}" type="button"
-                            class="inline-flex items-center px-3 py-3 mt-4 text-xs font-bold text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Kembali
-                        </a>
                     </div>
                 </div>
             </div>

@@ -45,23 +45,18 @@
         <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <!-- 
-                    <h1 class='text-3xl pt-4 pb-2 font-bold text-center'>Tabel Product</h1>
-                    <p class='text-gray-700  text-center'>Data tabel dibawah merupakan data yang diambil dari tabel
-                        product</P> -->
                     <div>
-
-                        <a href="{{ route('products.create') }}" type="button"
-                            class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Tambah Data
-                        </a>
                         <a href="{{ route('index') }}" type="button"
-                            class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-white bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Kembali
+                        class="inline-flex items-center px-3 py-3 mt-2 ml-8 text-xs font-medium text-gray-700 border-2 border-black rounded focus:outline-none focus:ring-2 focus:ring-offset-2 ">
+                        Kembali
+                        </a>
+                        <a href="{{ route('products.create') }}" type="button"
+                            class="inline-flex items-center px-3 py-3 mt-2 ml-2 text-xs font-medium text-white bg-green-600 border border-transparent rounded shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            Tambah Data
                         </a>
                     </div>
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                        <div class="overflow-hidden border-b border-gray-200 shadow">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                     <tr>
@@ -99,7 +94,7 @@
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             {{ $product->unit_price }}
                                         </td>
-                                        <td class="px-6 py-4 text-sm font-medium flex space-x-3 whitespace-nowrap">
+                                        <td class="flex px-6 py-4 space-x-3 text-sm font-medium whitespace-nowrap">
                                             <a href="{{route('products.edit', ['id' => $product->product_id])}}"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                             <form
@@ -115,13 +110,17 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="mt-2 ml-3">
+                                {{ $products->links() }}
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <footer>
-            <div class="px-4 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
+            <div class="px-4 py-10 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
                 <p class="text-base text-center text-gray-400">
                     Made with ❤ kelompok MBD
                 </p>
