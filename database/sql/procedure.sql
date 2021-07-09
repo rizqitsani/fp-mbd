@@ -17,7 +17,32 @@ BEGIN
 END;
 $procedure$
 
+SELECT * FROM products WHERE product_id = 1;
+
 CALL update_product_quantity(1);
 
 SELECT * FROM products WHERE product_id = 1;
 
+-- Procedure 2: Membership discount untuk customer sudah order diatas 10 kali
+
+-- DROP PROCEDURE IF EXISTS membership_discount();
+
+-- CREATE OR REPLACE PROCEDURE membership_discount()
+-- LANGUAGE plpgsql
+-- AS $$
+-- DECLARE 
+--   ids char(5);
+--   customer_ids CURSOR FOR SELECT c.customer_id FROM customers c;
+-- BEGIN
+-- 	OPEN customer_ids;
+	
+--   LOOP
+-- 		FETCH customer_ids INTO ids;
+-- 		RAISE NOTICE 'i want to print %', ids;
+-- 	END LOOP;
+  
+--   CLOSE customer_ids;
+-- END;
+-- $$
+
+-- CALL membership_discount();
