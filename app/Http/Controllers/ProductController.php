@@ -48,11 +48,21 @@ class ProductController extends Controller
         $product->reorder_level = $request->reorder_level;
         $product->discontinued = 0;
 
+        $request->validate([
+            'product_name' => 'required',
+            'supplier_id' => 'required',
+            'category_id' => 'required',
+            'quantity_per_unit' => 'required',
+            'unit_price' => 'required',
+            'units_in_stock' => 'required',
+            'reorder_level' => 'required',
+        ]);
+
         if ($product->save()) {
-            return redirect(route('products.index'))->with('success', 'Product created.');
+            return redirect(route('products.index'))->with('success', 'Product berhasil dibuat.');
         }
 
-        return redirect(route('products.index'))->with('error', 'Failed to create product.');
+        return redirect(route('products.index'))->with('error', 'Produk gagal dibuat.');
     }
 
     /**
@@ -102,11 +112,22 @@ class ProductController extends Controller
         $product->reorder_level = $request->reorder_level;
         $product->discontinued = $request->discontinued;
 
+         $request->validate([
+            'product_name' => 'required',
+            'supplier_id' => 'required',
+            'category_id' => 'required',
+            'quantity_per_unit' => 'required',
+            'unit_price' => 'required',
+            'units_in_stock' => 'required',
+            'reorder_level' => 'required',
+            'discontinued' => 'required',
+        ]);
+
         if ($product->save()) {
-            return redirect(route('products.index'))->with('success', 'Product updated.');
+            return redirect(route('products.index'))->with('success', 'Product telah diupdate degan data baru.');
         }
 
-        return redirect(route('products.index'))->with('error', 'Failed to update product.');
+        return redirect(route('products.index'))->with('error', 'Produk gagal diupdate.');
     }
 
     /**
@@ -120,9 +141,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         if ($product->delete()) {
-            return redirect(route('products.index'))->with('success', 'Product deleted.');
+            return redirect(route('products.index'))->with('success', 'Product telah dihapus.');
         }
 
-        return redirect(route('products.index'))->with('success', 'Failed to delete product.');
+        return redirect(route('products.index'))->with('success', 'Produk gagal dihapus.');
     }
 }

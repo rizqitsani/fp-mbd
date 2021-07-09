@@ -47,6 +47,23 @@
             </div>
         </div>
         <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ session('success') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                @endif
+
+              @if (session('error'))
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ session('error') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            @endif
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div>
@@ -126,7 +143,7 @@
                                                         </div>
                                                       </div>
                                                     </div>
-                                                </div>
+                                              </div>
                                         </td>
                                     </tr>
                                     @endforeach

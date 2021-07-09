@@ -40,6 +40,17 @@
                                 </p>
                             </div>
                         </div>
+                         @if ($errors->any())
+                            <div
+                                class="relative px-4 py-3 my-1 text-red-700 bg-red-100 border border-red-400 rounded "
+                                role="alert">
+                                <ul class="ml-2 list-decimal">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <div class="pt-3">
                             <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
@@ -50,6 +61,7 @@
                                     </label>
                                     <div class="mt-1">
                                         <input id="product_name" name="product_name"
+                                            placeholder="Kentang"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
@@ -59,7 +71,7 @@
                                         Supplier ID
                                     </label>
                                     <div class="mt-1">
-                                        <input id="supplier_id" name="supplier_id"
+                                        <input id="supplier_id" name="supplier_id" placeholder="1"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
@@ -69,7 +81,7 @@
                                         Category ID
                                     </label>
                                     <div class="mt-1">
-                                        <input id="category_id" name="category_id"
+                                        <input id="category_id" name="category_id" placeholder="2"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
@@ -81,27 +93,27 @@
                                         Quantity per unit
                                     </label>
                                     <div class="mt-1">
-                                        <input type="text" name="quantity_per_unit" id="quantity_per_unit"
+                                        <input type="text" name="quantity_per_unit"  placeholder="16 kg pkg" id="quantity_per_unit"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
 
                                 <div class="sm:col-span-6">
-                                    <label for="unit_price" class="block text-sm font-medium text-gray-700">
+                                    <label for="unit_price"  class="block text-sm font-medium text-gray-700">
                                         Unit Price
                                     </label>
                                     <div class="mt-1">
-                                        <input type="text" name="unit_price" id="unit_price"
+                                        <input type="text" name="unit_price" id="unit_price" placeholder="62.50"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
 
                                 <div class="sm:col-span-6">
-                                    <label for="units_in_stock" class="block text-sm font-medium text-gray-700">
+                                    <label  for="units_in_stock" class="block text-sm font-medium text-gray-700">
                                         Unit in Stock
                                     </label>
                                     <div class="mt-1">
-                                        <input type="text" name="units_in_stock" id="units_in_stock"
+                                        <input type="text" placeholder="42" name="units_in_stock" id="units_in_stock"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
@@ -111,7 +123,7 @@
                                         Reorder Level
                                     </label>
                                     <div class="mt-1">
-                                        <input type="text" name="reorder_level" id="reorder_level"
+                                        <input type="text" placeholder="2" name="reorder_level" id="reorder_level"
                                             class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
@@ -121,10 +133,13 @@
 
                     <div class="pt-5">
                         <div class="flex justify-end">
+                          <a href="{{route('products.index')}}">
                             <button type="button"
                                 class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Cancel
                             </button>
+                          </a>
+                           
                             <button type="submit"
                                 class="inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Create
