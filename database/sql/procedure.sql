@@ -1,18 +1,23 @@
--- Procedure 1: Update units_on_order dan units_in_stock berdasar order_details
+-- Procedure 1: Update units_on_order berdasar order_details
 
 DROP PROCEDURE update_product_quantity(integer);
 
 CREATE OR REPLACE PROCEDURE update_product_quantity(id integer)
 LANGUAGE plpgsql
-AS $$
+AS $procedure$
+DECLARE order_number real;
 BEGIN
-  UPDATE products p
-  SET
-    units_on_order = units_on_order + 1,
-    units_in_stock = units_in_stock - 1
-  WHERE
-    p.product_id = id;
+    SELECT INTO order_number SUM(quantity)
+    FROM order_details
+    WHERE product_id = id;
+
+    UPDATE products
+    SET units_on_order = order_number
+    WHERE product_id = id;
 END;
-$$;
+$procedure$
 
 CALL update_product_quantity(1);
+
+SELECT * FROM products WHERE product_id = 1;
+
